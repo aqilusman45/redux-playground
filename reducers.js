@@ -10,6 +10,17 @@ const todos = (state = [], action) => {
           ? todo
           : Object.assign({}, todo, { complete: !todo.complete })
       );
+    case ADD_TODOS:
+      return action.todos;
+    default:
+      return state;
+  }
+};
+
+const loader = (state = true, action) => {
+  switch (action.type) {
+    case ADD_TODOS:
+      return false;
     default:
       return state;
   }
