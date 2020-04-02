@@ -3,14 +3,21 @@
 // const { goals, todos } = require("./reducers");
 
 // combine reducers
-function app(state = {}, action) {
-  return {
-    todos: todos(state.todos, action),
-    goals: goals(state.goals, action)
-  };
-}
+// function app(state = {}, action) {
+//   return {
+//     todos: todos(state.todos, action),
+//     goals: goals(state.goals, action)
+//   };
+// }
 
-const store = createStore(app);
+// Using Redux library
+
+const store = Redux.createStore(
+  Redux.combineReducers({
+    todos,
+    goals
+  })
+);
 
 // unsubscribe();
 
