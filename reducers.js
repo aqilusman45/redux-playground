@@ -1,10 +1,10 @@
-exports.todos = (state = [], action) => {
+const todos = (state = [], action) => {
   switch (action.type) {
-    case "ADD_TODO":
+    case ADD_TODO:
       return state.concat([action.todo]);
-    case "REMOVE_TODO":
+    case REMOVE_TODO:
       return state.filter(todo => todo.id !== action.id);
-    case "UPDATE_TODO":
+    case UPDATE_TODO:
       return state.map(todo =>
         todo.id !== action.id
           ? todo
@@ -15,13 +15,13 @@ exports.todos = (state = [], action) => {
   }
 };
 
-exports.goals = (state = [], action) => {
+const goals = (state = [], action) => {
   switch (action.type) {
-    case "ADD_GOAL":
+    case ADD_GOAL:
       return state.concat([action.goal]);
-    case "REMOVE_GOAL":
+    case REMOVE_GOAL:
       return state.filter(goal => goal.id !== action.id);
-    case "UPDATE_GOAL":
+    case UPDATE_GOAL:
       return state.map(goal =>
         goal.id !== action.id
           ? goal
