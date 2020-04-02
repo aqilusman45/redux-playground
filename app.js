@@ -21,16 +21,16 @@ const store = Redux.createStore(
 
 // unsubscribe();
 
-store.dispatch(
-  addTodo({
-    title: "Hello TODO",
-    id: 1
-  })
-);
+// store.dispatch(
+//   addTodo({
+//     title: "Hello TODO",
+//     id: 1
+//   })
+// );
 
-store.dispatch(
-  addGoal({
-    title: "Hello GOAL",
-    id: 0
-  })
-);
+// store.dispatch(
+//   addGoal({
+//     title: "Hello GOAL",
+//     id: 0
+//   })
+// );

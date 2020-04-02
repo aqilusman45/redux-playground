@@ -15,14 +15,14 @@
         <ol id="todos-list"></ol>
       </div>
     </div>
-    <div>
+    <!-- <div>
       <input type="text" name="title" id="" />
       <button>Add Todo</button>
       <div>
         <h1>Goals List</h1>
         <ol id="goals-list"></ol>
       </div>
-    </div>
+    </div> -->
   </body>
   <script src="actions.js"></script>
   <!-- <script src="store.js"></script> -->
@@ -40,17 +40,17 @@
     const unsubscribe = store.subscribe(() => {
       const currentState = store.getState();
       document.getElementById("todos-list").innerHTML = "";
-      document.getElementById("goals-list").innerHTML = "";
+      // document.getElementById("goals-list").innerHTML = "";
       currentState.todos.forEach(element => {
         document
           .getElementById("todos-list")
           .appendChild(listCreator(element.title, element.id));
       });
-      currentState.goals.forEach(element => {
-        document
-          .getElementById("goals-list")
-          .appendChild(listCreator(element.title, element.id));
-      });
+      // currentState.goals.forEach(element => {
+      //   document
+      //     .getElementById("goals-list")
+      //     .appendChild(listCreator(element.title, element.id));
+      // });
     });
 
     function addTodoButton() {
