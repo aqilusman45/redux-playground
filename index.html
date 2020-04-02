@@ -8,14 +8,14 @@
     <script src="https://unpkg.com/react@16.3.0-alpha.1/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.3.0-alpha.1/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://tylermcginnis.com/goals-todos-api/index.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <div>
-      <input type="text" name="title" id="todo-title" />
-      <button id="add-todo-btn" onclick="addTodoButton()">Add Todo</button>
+      <!-- <input type="text" name="title" id="todo-title" />
+      <button id="add-todo-btn" onclick="addTodoButton()">Add Todo</button> -->
       <div>
-        <h1>Todos List</h1>
         <ol id="todos-list"></ol>
       </div>
     </div>
@@ -48,7 +48,7 @@
       currentState.todos.forEach(element => {
         document
           .getElementById("todos-list")
-          .appendChild(listCreator(element.title, element.id));
+          .appendChild(listCreator(element.name, element.id));
       });
       // currentState.goals.forEach(element => {
       //   document
@@ -63,7 +63,7 @@
       const id = store.getState().todos.length;
       store.dispatch(
         addTodo({
-          title: todoTitle.value,
+          name: todoTitle.value,
           id
         })
       );
@@ -78,19 +78,29 @@
       );
     };
     class App extends React.Component {
+      async componentDidMount() {
+        this.unsubscribe = store.subscribe(() => {
+          this.forceUpdate();
+        });
+        const todos = await API.fetchGoals();
+        store.dispatch(addFetchedData(todos));
+      }
       handleTodo = () => {
         const title = this.input.value;
         this.input.value = "";
         const id = store.getState().todos.length;
         store.dispatch(
           addTodo({
-            title,
+            name: title,
             id
           })
         );
       };
       render() {
-        return (
+        const { loader } = store.getState();
+        return loader ? (
+          <h1>Loading</h1>
+        ) : (
           <div>
             <h1>Todos in React</h1>
             <div>
