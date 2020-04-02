@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" name="title" id="todo-title" />
+      <button id="add-todo-btn" onclick="addTodoButton()">Add Todo</button>
+      <div>
+        <h1>Todos List</h1>
+        <ol id="todos-list"></ol>
+      </div>
+    </div>
+    <div>
+      <input type="text" name="title" id="" />
+      <button>Add Todo</button>
+      <div>
+        <h1>Goals List</h1>
+        <ol id="goals-list"></ol>
+      </div>
+    </div>
+  </body>
+  <script src="actions.js"></script>
+  <script src="store.js"></script>
+  <script src="reducers.js"></script>
+  <script src="app.js"></script>
+  <script>
+    function listCreator(title, id) {
+        const listTag = document.createElement('li')
+        listTag.innerHTML = document.createElement('h1').innerHTML = title
+         listTag.id = id
+         console.log(listTag);
+         
+         return listTag
+    }
+
+    const unsubscribe = store.subscribe(() => {
+      const currentState = store.getState()
+      
+      currentState.todos.forEach(element => {
+          document.getElementById('todos-list').appendChild(listCreator(element.title, element.id))
+      });
+      currentState.goals.forEach(element => {
+          document.getElementById('goals-list').appendChild(listCreator(element.title, element.id))
+      });
+    });
+
+    function addTodoButton() {
+      const todoTitle = document.getElementById("todo-title");
+      console.log(todoTitle.value);
+      const id = store.getState().todos.length;
+      store.dispatch(
+        addTodo({
+          title: todoTitle.value,
+          id
+        })
+      );
+    }
+  </script>
+</html>
