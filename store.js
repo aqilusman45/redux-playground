@@ -1,4 +1,4 @@
-exports.createStore = reducer => {
+const createStore = reducer => {
   // 1- Create
   // 2- Read
   // 3- Update
