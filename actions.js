@@ -2,6 +2,13 @@
 const ADD_TODO = "ADD_TODO";
 const REMOVE_TODO = "REMOVE_TODO";
 const UPDATE_TODO = "UPDATE_TODO";
+const ADD_TODOS = "ADD_TODOS";
+const RECEIVE_DATA = "RECEIVE_DATA";
+
+const addFetchedData = todos => ({
+  type: ADD_TODOS,
+  todos
+});
 
 const addTodo = todo => ({
   type: ADD_TODO,
