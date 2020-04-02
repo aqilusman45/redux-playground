@@ -1,6 +1,6 @@
-const { createStore } = require("./store");
-const { Goals, Todos } = require("./actions");
-const { goals, todos } = require("./reducers");
+// const { createStore } = require("./store");
+// const { Goals, Todos } = require("./actions");
+// const { goals, todos } = require("./reducers");
 
 // combine reducers
 function app(state = {}, action) {
@@ -13,20 +13,20 @@ function app(state = {}, action) {
 const store = createStore(app);
 
 const unsubscribe = store.subscribe(() => {
-  // console.log("state", store.getState());
+  console.log("state", store.getState());
 });
 
 // unsubscribe();
 
 store.dispatch(
-  Todos.addTodo({
+  addTodo({
     title: "Hello TODO",
     id: 1
   })
 );
 
 store.dispatch(
-  Goals.addGoal({
+  addGoal({
     title: "Hello GOAL",
     id: 0
   })
