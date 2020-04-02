@@ -16,7 +16,7 @@
 const checker = store => next => action => {
   if (
     action.type === ADD_TODO &&
-    action.todo.title.toLowerCase().includes("dog")
+    action.todo.name.toLowerCase().includes("dog")
   ) {
     return alert("Nope, we are having no dogs");
   }
