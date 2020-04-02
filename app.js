@@ -12,10 +12,6 @@ function app(state = {}, action) {
 
 const store = createStore(app);
 
-const unsubscribe = store.subscribe(() => {
-  console.log("state", store.getState());
-});
-
 // unsubscribe();
 
 store.dispatch(
