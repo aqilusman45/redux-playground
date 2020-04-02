@@ -32,14 +32,13 @@
         const listTag = document.createElement('li')
         listTag.innerHTML = document.createElement('h1').innerHTML = title
          listTag.id = id
-         console.log(listTag);
-         
          return listTag
     }
 
     const unsubscribe = store.subscribe(() => {
       const currentState = store.getState()
-      
+      document.getElementById('todos-list').innerHTML = ''
+      document.getElementById('goals-list').innerHTML = ''
       currentState.todos.forEach(element => {
           document.getElementById('todos-list').appendChild(listCreator(element.title, element.id))
       });
