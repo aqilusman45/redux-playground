@@ -15,7 +15,8 @@
 const store = Redux.createStore(
   Redux.combineReducers({
     todos,
-    goals
+    goals,
+    loader
   }),
   Redux.applyMiddleware(checker, logger)
 );
