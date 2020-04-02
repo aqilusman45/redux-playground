@@ -1,41 +1,39 @@
-exports.Todos = class {
-  static ADD_TODO = "ADD_TODO";
-  static REMOVE_TODO = "REMOVE_TODO";
-  static UPDATE_TODO = "UPDATE_TODO";
+// Todos Actions
+const ADD_TODO = "ADD_TODO";
+const REMOVE_TODO = "REMOVE_TODO";
+const UPDATE_TODO = "UPDATE_TODO";
 
-  static addTodo = todo => ({
-    type: this.ADD_TODO,
-    todo
-  });
+const addTodo = todo => ({
+  type: ADD_TODO,
+  todo
+});
 
-  static removeTodo = todo => ({
-    type: this.REMOVE_TODO,
-    todo
-  });
+const removeTodo = todo => ({
+  type: REMOVE_TODO,
+  todo
+});
 
-  static updateTodo = todo => ({
-    type: this.UPDATE_TODO,
-    todo
-  });
-};
+const updateTodo = todo => ({
+  type: Todos.UPDATE_TODO,
+  todo
+});
 
-exports.Goals = class {
-  static ADD_GOAL = "ADD_GOAL";
-  static REMOVE_GOAL = "REMOVE_GOAL";
-  static UPDATE_GOAL = "UPDATE_GOAL";
+// Goals Actions
+const ADD_GOAL = "ADD_GOAL";
+const REMOVE_GOAL = "REMOVE_GOAL";
+const UPDATE_GOAL = "UPDATE_GOAL";
 
-  static addGoal = goal => ({
-    type: this.ADD_GOAL,
-    goal
-  });
+const addGoal = goal => ({
+  type: ADD_GOAL,
+  goal
+});
 
-  static removeGoal = goal => ({
-    type: this.REMOVE_GOAL,
-    goal
-  });
+const removeGoal = goal => ({
+  type: REMOVE_GOAL,
+  goal
+});
 
-  static updateGoal = goal => ({
-    type: this.UPDATE_GOAL,
-    goal
-  });
-};
+const updateGoal = goal => ({
+  type: UPDATE_GOAL,
+  goal
+});
