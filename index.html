@@ -57,8 +57,7 @@
       const todoTitle = document.getElementById("todo-title");
       console.log(todoTitle.value);
       const id = store.getState().todos.length;
-      checkAndDispatch(
-        store,
+      store.dispatch(
         addTodo({
           title: todoTitle.value,
           id

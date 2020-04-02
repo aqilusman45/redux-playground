@@ -16,7 +16,8 @@ const store = Redux.createStore(
   Redux.combineReducers({
     todos,
     goals
-  })
+  }),
+  Redux.applyMiddleware(checker, logger)
 );
 
 // unsubscribe();
